@@ -1,12 +1,14 @@
 "use client";
 
 import Image from 'next/image'
-import useDevicePixelRatio from '@/app/lib/useDevicePixelRatio';
-
+import { useEffect, useState } from 'react';
 export default function HeroImageBackground({children}: {children?: React.ReactNode}){
-    const pixelRatio = useDevicePixelRatio(0);
-
-    const isRetina = typeof window !== "undefined" && pixelRatio > 1;
+    const [isRetina, setIsRetina] = useState(false);
+    useEffect(() => {
+        if(globalThis.window){
+            setIsRetina(window.devicePixelRatio > 1);
+        }
+    }, []);
 
     return (
         <div className="relative">

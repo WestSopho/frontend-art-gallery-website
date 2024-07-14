@@ -1,7 +1,7 @@
 "use client";
 
 import Image from 'next/image';
-import useDevicePixelRatio from '@/app/lib/useDevicePixelRatio';
+import { useEffect, useState } from 'react';
 
 interface Size {
     mobile:{
@@ -27,9 +27,13 @@ interface ImageWrapperProps {
 }
 
 export default function ImageWrapper({filename, retinaFilename, alt, size, gridProps}: ImageWrapperProps){
-    const pixelRatio = useDevicePixelRatio(0);
+    const [isRetina, setIsRetina] = useState(false);
+    useEffect(() => {
+        if (globalThis.window) {
+            setIsRetina(window.devicePixelRatio > 1);
+        }
+    }, []);
 
-    const isRetina = typeof window !== 'undefined' && pixelRatio > 1;
     return (
         <div className={`relative ${gridProps}`}>
             {/* Image for Mobile Devices */}

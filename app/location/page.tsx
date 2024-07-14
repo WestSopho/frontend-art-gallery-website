@@ -1,7 +1,10 @@
-import Map from '@/app/ui/location/map';
 import Info from '@/app/ui/location/info';
 import LocationButton from '../ui/location/location-button';
 import Footer from '../ui/location/footer';
+
+import dynamic from 'next/dynamic';
+const Map = dynamic(() => import('@/app/ui/location/map'), {ssr: false});
+
 
 export default function Location(){
     return (
