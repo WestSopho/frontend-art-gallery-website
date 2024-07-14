@@ -26,5 +26,5 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Link](https://github.com/WestSopho/frontend-art-gallery-website.vercel)
+- Solution URL: [Link](https://github.com/WestSopho/frontend-art-gallery-website)
 - Live Site URL: [Link](https://frontend-art-gallery-website.vercel.app/)
